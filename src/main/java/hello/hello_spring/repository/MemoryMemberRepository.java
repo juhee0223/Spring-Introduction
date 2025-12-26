@@ -75,4 +75,8 @@ public class MemoryMemberRepository implements MemberRepository{ //단축키 alt
         //new ArrayList<Member>(store.values());
         //을 써야 했지만, 컴파일러가 자동 추론하므로 <Member> 생략 가능
     }
+
+    public void clearStore() {
+        store.clear();  //이러면 store를 싹 비운다.
+    }
 }
