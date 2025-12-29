@@ -60,10 +60,29 @@ public class MemberController {
         member.setName(form.getName());
 
         memberService.join(member); //실제 회원 가입 로직 실행
+        // HTML input(name)
+        // → POST 요청
+        // → Spring이 MemberForm 생성
+        // → setName() 호출
+        // → Controller에서 form.getName()
+        // → Member 생성
+        // → Service로 전달
         return "redirect:/"; //회원 가입 후 홈 화면으로 이동
         //redirect:를 쓰는 이유:
         //새로고침 시 중복 POST 방지, PRG(Post-Redirect-Get) 패턴
     }
+
+/*    GET /members/new	회원 가입 폼 화면을 보여줌
+    POST /members/new	폼에서 입력한 데이터를 서버로 전송
+    URL은 동일하지만, GET이냐, POST냐에 따라 동작이 다르다는게 포인트*/
+
+/*    핵심 포인트 5개
+    URL이 같아도 GET / POST는 완전히 다른 요청
+    POST는 데이터를 body에 실어 보낸다
+    input name ↔ Java 필드명이 1:1 매칭
+    Spring은 setter로만 값 주입
+    Form 객체는 웹 계층 전용 DTO다*/
+
 }
 
 
