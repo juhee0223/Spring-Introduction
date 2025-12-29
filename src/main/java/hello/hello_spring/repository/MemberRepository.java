@@ -1,11 +1,13 @@
 package hello.hello_spring.repository;
 
 import hello.hello_spring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
 //Member 객체를 저장하는 저장소 역할
+
 public interface MemberRepository { //인터페이스 선언- 추상 메서드들의 집합. 구현은 없고 메서드 시그니처만 존재
     //아래의 기능들을 가진 저장소가 필요하다라는.... 계약 정의.
     //추후에 implements 키워드로 구현 클래스 작성

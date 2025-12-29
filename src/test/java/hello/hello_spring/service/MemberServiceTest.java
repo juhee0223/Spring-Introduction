@@ -19,6 +19,7 @@ class MemberServiceTest {
     public void beforeEach() {  //테스트 실행마다 새로 생성된다.
         memberRepository = new MemoryMemberRepository();
         memberService = new MemberService(memberRepository);    //Dependency Injection (DI)
+        //서비스 객체가, 자신이 의존하는 리포지토리 객체의 구현체를 직접 생성하지 않고, 외부(설정 등)에서 전달받아 사용하는 설계 방식
     }
 
     @AfterEach

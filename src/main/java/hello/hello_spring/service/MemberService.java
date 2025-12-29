@@ -1,16 +1,21 @@
-package hello.hello_spring.service;
 //회원 서비스를 만들려면 회원 리포지토리가 있어야겠죠
+package hello.hello_spring.service;
 
 import hello.hello_spring.domain.Member;    //import 안돼있어서 빨간줄 뜬다면 alt enter 치면됨
 import hello.hello_spring.repository.MemberRepository;
 import hello.hello_spring.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+//@Service 애노테이션이 있으면 스프링 빈으로 자동 등록된다
+@Service    //이걸 넣어주지 않으면, 순수한 자바 코드이기 때문에 스프링 입장에서 controller랑 autowired 해줄수가 없었다.
 public class MemberService {    //테스트할때 쉽게 하는 법 클래스에다가 ctrl shift T 하면 됨 (create new Test 라고 뜸. 누르면 자동으로 만들어짐)
     public final MemberRepository memberRepository;
 
+    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
