@@ -8,8 +8,12 @@ import hello.hello_spring.repository.MemoryMemberRepository;
 import java.util.List;
 import java.util.Optional;
 
-public class MemberService {
-    public final MemberRepository memberRepository = new MemoryMemberRepository();
+public class MemberService {    //테스트할때 쉽게 하는 법 클래스에다가 ctrl shift T 하면 됨 (create new Test 라고 뜸. 누르면 자동으로 만들어짐)
+    public final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     /**
      * 회원가입
