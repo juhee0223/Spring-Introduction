@@ -5,8 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-// @Repository 애노테이션이 있으면 스프링 빈으로 자동 등록된다
-@Repository
+//@Repository // @Repository 애노테이션이 있으면 스프링 빈으로 자동 등록된다
 public class MemoryMemberRepository implements MemberRepository{ //단축키 alt enter 누르면..implement methods 뜬다. 자동생성해줌!
     //자동생성이 된 것을 활용해서 본격 구현 하면 됨
 
