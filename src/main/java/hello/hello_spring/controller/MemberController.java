@@ -4,8 +4,11 @@ import hello.hello_spring.domain.Member;                            //도메인 
 import hello.hello_spring.service.MemberService;                    //비즈니스 로직 담당 계층
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller     //@Controller 이 있으면 스프링컨테이너에 빈으로 자동 등록된다 & 이 클래스가 웹 요청을 처리하는 컨트롤러임을 스프링에 알립니다.
 public class MemberController {
@@ -82,6 +85,13 @@ public class MemberController {
     input name ↔ Java 필드명이 1:1 매칭
     Spring은 setter로만 값 주입
     Form 객체는 웹 계층 전용 DTO다*/
+
+    @GetMapping("/members")
+    public String list(Model model) {
+        List<Member> members = memberService.findMembers();
+        model.addAttribute("members", members);
+        return "members/memberList";
+    }
 
 }
 
